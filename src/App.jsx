@@ -1,27 +1,42 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
   const api_url = "https://api.adviceslip.com/advice"
 
-  const [adviceId, setAdviceID] = useState(117);
-  const [proverb, setProverb] = useState("It is easy to sit up and take notice, what's difficult is getting up and taking action.");
+  const [adviceId, setAdviceID] = useState();
+  const [proverb, setProverb] = useState("");
 
-  async function getAdvice () {
-    const resp = await fetch(api_url);
-    const advice = await resp.json();
+  useEffect(() => {
+    getAdvice();
+  }, [])
 
-    setAdviceID(advice.slip.id)
-    setProverb(advice.slip.advice);
+  async function getAdvice() {
+
+    try {
+      const resp = await fetch(api_url);
+
+      if (!resp.ok) {
+        throw new Error(`HTTP error: ${resp.status}`);
+      } else {
+        const advice = await resp.json();
+        setAdviceID(advice.slip.id)
+        setProverb(advice.slip.advice);
+      }
+    } catch (error) {
+      console.log(`An error has occured: ${error}`);
+    }
   }
 
   const rollDice = () => {
     getAdvice();
   }
 
+
+
   return (
     <>
-      <div className='container'>
+      <div className='container' role='main'>
         <div className='card'>
           <div className='card-body'>
             <div className='advice-num'>
@@ -31,18 +46,16 @@ function App() {
               "{proverb}"
             </div>
             <div className='divider-mobile'>
-              <img src="assets/images/pattern-divider-mobile.svg" />
+              <img src="assets/images/pattern-divider-mobile.svg" alt='a horizontal line bisected by two short parallel lines'/>
             </div>
             <div className='divider-desktop'>
-              <img src="assets/images/pattern-divider-desktop.svg" />
+              <img src="assets/images/pattern-divider-desktop.svg" alt='a horizontal line bisected by two short parallel lines' />
             </div>
           </div>
         </div>
-        <div className='button'>
-          <button onClick={rollDice}></button>
-        </div>
+        <button onClick={rollDice} aria-label='generate advice'></button>
       </div>
-      
+
     </>
   )
 }
