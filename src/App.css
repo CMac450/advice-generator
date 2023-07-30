@@ -51,6 +51,7 @@ button {
   background-size: 22px;
   cursor: pointer;
   margin-top: 20px;
+  transform: translateY(30px)
 }
 
 button:hover {
@@ -76,6 +77,10 @@ button:hover {
 
   .divider-desktop {
     display: none;
+  }
+
+  button {
+    transform: translateY(50px)
   }
 
 }
