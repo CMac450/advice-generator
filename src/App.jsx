@@ -14,7 +14,7 @@ function App() {
   async function getAdvice() {
 
     try {
-      const resp = await fetch(api_url);
+      const resp = await fetch(api_url, {cache: "no-cache"});
 
       if (!resp.ok) {
         throw new Error(`HTTP error: ${resp.status}`);
