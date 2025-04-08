@@ -33,10 +33,19 @@
 .advice-text {
   color: azure;
   font-weight: 800;
-  font-size: 25px;
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 25px;
+}
+
+.advice-text-proverb {
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.advice-text-author {
+  font-weight: 800;
+  font-size: 20px;
 }
 
 button {
