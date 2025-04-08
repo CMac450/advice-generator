@@ -34,16 +34,20 @@ function App() {
           <div className='card-body'>
             <div className='advice-num'>Advice #{adviceId}</div>
             <div className='advice-text advice-text-proverb'>"{proverb}"</div>
-            <div className='advice-text advice-text-author'>{author}</div>
-            <div className='divider-mobile'>
-              <img src="assets/images/pattern-divider-mobile.svg" alt='divider' />
+            {/*<div className='advice-text advice-text-author'>{author}</div>*/}
+            <div className='divider divider-mobile'>  
+              <img src="assets/images/pattern-divider-mobile.svg" alt='divider'/>
             </div>
-            <div className='divider-desktop'>
-              <img src="assets/images/pattern-divider-desktop.svg" alt='divider' />
+            <div className='divider divider-desktop'>
+              <img src="assets/images/pattern-divider-desktop.svg" alt='divider'/>
             </div>
           </div>
         </div>
-        <button onClick={getAdvice} aria-label='generate advice'></button>
+        <div className="btn-container">
+          <button onClick={getAdvice} aria-label='generate advice'>
+            <img src={"/assets/images/icon-dice.svg"} alt='generate advice'/>
+          </button>
+        </div>
       </div>
   );
 }

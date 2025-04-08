@@ -1,23 +1,20 @@
 .container {
-  /* width: 400px; */
+  position: relative;
+}
+
+.card {
   max-width: 600px;
   width: auto;
-  /* height: 300px; */
-  max-height: 500px;
   height: auto;
   background-color: hsl(217, 19%, 24%);
   border-radius: 10px;
   text-align: center;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 15%;
-}
-
-.card {
-  margin: 0 auto;
+  position: relative;
 }
 
 .advice-num {
@@ -48,19 +45,29 @@
   font-size: 20px;
 }
 
+.divider-mobile {
+  margin-bottom: 60px;
+}
+
+.divider-desktop {
+  margin-bottom: 60px;
+}
+
+.btn-container {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
 button {
   background-color: hsl(150, 100%, 66%);
-  border-radius: 50px;
+  border-radius: 100px;
   height: 60px;
   width: 60px;
   border-width: 0px;
-  background-image: url("images/icon-dice.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 22px;
   cursor: pointer;
-  margin-top: 20px;
-  transform: translateY(30px)
 }
 
 button:hover {
@@ -76,9 +83,7 @@ button:hover {
 
 @media  screen and (max-width: 600px) {
   .container {
-    width: 80dvw;
-    height: 300px;
-    background-color: hsl(217, 19%, 24%);
+    height: auto;
     border-radius: 10px;
     text-align: center;
     margin-top: 25%;
@@ -86,10 +91,6 @@ button:hover {
 
   .divider-desktop {
     display: none;
-  }
-
-  button {
-    transform: translateY(50px)
   }
 
 }
