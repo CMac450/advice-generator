@@ -45,7 +45,7 @@ function App() {
         </div>
         <div className="btn-container">
           <button onClick={getAdvice} aria-label='generate advice'>
-            <img src={"/assets/images/icon-dice.svg"} alt='generate advice'/>
+            <img src="/assets/images/icon-dice.svg" alt='generate advice'/>
           </button>
         </div>
       </div>
