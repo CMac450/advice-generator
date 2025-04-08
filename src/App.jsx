@@ -3,11 +3,14 @@ import './App.css'
 
 function App() {
   const api_url = "http://localhost:3001/advice"
+  
+  const defaultProverb = "It is easy to sit up and take notice, what's difficult is getting up and taking action.";
+  const defaultAdviceId = "117";
 
   const [adviceId, setAdviceID] = useState();
   const [proverb, setProverb] = useState("");
   const [author, setAuthor] = useState("");
-
+  
   useEffect(() => {
     getAdvice();
   }, []);
@@ -20,8 +23,8 @@ function App() {
 
       // ZenQuotes returns an array with one quote object
       const quote = quoteData[0];
-      setAdviceID(Math.floor(Math.random() * 1000));
-      setProverb(`${quote.q}`);
+      quote.q !== "Too many requests. Obtain an auth key for unlimited access." ? setProverb(`${quote.q}`) : setProverb(defaultProverb);
+      quote.q !== "Too many requests. Obtain an auth key for unlimited access." ? setAdviceID(Math.floor(Math.random() * 1000)) : setAdviceID(defaultAdviceId);
       setAuthor(`— ${quote.a}`);
     } catch (error) {
       console.error(`An error occurred: ${error}`);
