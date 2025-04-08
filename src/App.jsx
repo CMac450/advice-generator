@@ -7,14 +7,10 @@ function App() {
   const defaultProverb = "It is easy to sit up and take notice, what's difficult is getting up and taking action.";
   const defaultAdviceId = "117";
 
-  const [adviceId, setAdviceID] = useState();
-  const [proverb, setProverb] = useState("");
+  const [adviceId, setAdviceID] = useState(defaultAdviceId);
+  const [proverb, setProverb] = useState(defaultProverb);
   const [author, setAuthor] = useState("");
   
-  useEffect(() => {
-    getAdvice();
-  }, []);
-
   async function getAdvice() {
     try {
       const resp = await fetch(api_url, { cache: "no-cache" });
