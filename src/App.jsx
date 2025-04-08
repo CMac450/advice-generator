@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-  const api_url = "https://api.adviceslip.com/advice"
+  const api_url = "http://api.adviceslip.com/advice"
 
   const [adviceId, setAdviceID] = useState();
   const [proverb, setProverb] = useState("");
